@@ -18,14 +18,14 @@ export function LoginPage() {
 
         const params = new URLSearchParams(window.location.search)
         const code = params.get("code")
-        const state = params.get("state")
+        
 
         if (code) {
-            handleOAuthCallback(code, state, savedKey)
+            handleOAuthCallback(code, savedKey)
         }
     }, [])
 
-    const handleOAuthCallback = async (code: string, state: string | null, keyFromStorage?: string | null) => {
+    const handleOAuthCallback = async (code: string, keyFromStorage?: string | null) => {
         try {
             setLoading(true)
             setError("")
